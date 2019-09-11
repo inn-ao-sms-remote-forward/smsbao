@@ -1,0 +1,19 @@
+{
+    "name": "kmvan/smsbao",
+    "description": "短信宝 for INN AO",
+    "type": "project",
+    "license": "GPL-v3.0",
+    "authors": [
+        {
+            "name": "kmvan",
+            "email": "kmvan.com@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "InnStudio\\SmsBao\\":"src/"
+        }
+    },
+    "require": {}
+}
