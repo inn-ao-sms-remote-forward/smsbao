@@ -48,7 +48,7 @@ final class App
 
     private function sms(): void
     {
-        $this->sms = (string) \filter_input(\INPUT_GET, 'sms', \FILTER_SANITIZE_STRING);
+        $this->sms = \urldecode((string) \filter_input(\INPUT_GET, 'sms', \FILTER_SANITIZE_STRING));
 
         if ( ! $this->sms) {
             die('Invalid SMS content.');
