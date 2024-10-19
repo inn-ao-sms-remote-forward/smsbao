@@ -1,20 +1,20 @@
 {
-    "name": "kmvan/smsbao",
-    "description": "短信宝 for INN AO",
-    "version": "1.0.1",
-    "type": "project",
-    "license": "GPL-v3.0",
-    "authors": [
-        {
-            "name": "kmvan",
-            "email": "kmvan.com@gmail.com"
-        }
-    ],
-    "minimum-stability": "stable",
-    "autoload": {
-        "psr-4": {
-            "InnStudio\\SmsBao\\":"src/"
-        }
-    },
-    "require": {}
+  "name": "kmvan/smsbao",
+  "description": "短信宝 for INN AO",
+  "version": "1.0.2",
+  "type": "project",
+  "license": "GPL-v3.0",
+  "authors": [
+    {
+      "name": "kmvan",
+      "email": "kmvan.com@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "InnStudio\\SmsBao\\": "src/"
+    }
+  },
+  "require": {}
 }

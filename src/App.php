@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace InnStudio\SmsBao;
 
@@ -24,60 +24,60 @@ final class App
         $this->setConfig();
 
         if ($this->send()) {
-            die(\json_encode([
+            exit(json_encode([
                 'code' => 0,
             ]));
         }
 
-        die(\json_encode([
+        exit(json_encode([
             'code' => 1,
         ]));
     }
 
     private function send(): bool
     {
-        $query = \http_build_query([
+        $query = http_build_query([
             'u' => $this->accountId,
-            'p' => \md5($this->accountPwd),
+            'p' => md5($this->accountPwd),
             'm' => $this->phoneNumber,
-            'c' => $this->sms,
+            'c' => urlencode($this->sms),
         ]);
 
-        return '0' === \file_get_contents("https://api.smsbao.com/sms?{$query}");
+        return '0' === file_get_contents("https://api.smsbao.com/sms?{$query}");
     }
 
     private function sms(): void
     {
-        $this->sms = \urldecode((string) \filter_input(\INPUT_GET, 'sms', \FILTER_SANITIZE_STRING));
+        $this->sms = (string) filter_input(\INPUT_GET, 'sms', \FILTER_DEFAULT);
 
-        if ( ! $this->sms) {
-            die('Invalid SMS content.');
+        if (!$this->sms) {
+            exit('Invalid SMS content.');
         }
     }
 
     private function setPhoneNumber(): void
     {
-        $this->phoneNumber = (int) \filter_input(\INPUT_GET, 'number', \FILTER_VALIDATE_INT);
+        $this->phoneNumber = (int) filter_input(\INPUT_GET, 'number', \FILTER_VALIDATE_INT);
 
-        if ( ! $this->phoneNumber) {
-            die('Invalid phone numbe');
+        if (!$this->phoneNumber) {
+            exit('Invalid phone numbe');
         }
     }
 
     private function setConfig(): void
     {
-        if ( ! \is_readable($this->configPath)) {
-            die('Invalid config file path.');
+        if (!is_readable($this->configPath)) {
+            exit('Invalid config file path.');
         }
 
-        $config = \json_decode((string) \file_get_contents($this->configPath), true);
+        $config = json_decode((string) file_get_contents($this->configPath), true);
 
-        if ( ! \is_array($config)) {
-            die('Invalid config file content.');
+        if (!\is_array($config)) {
+            exit('Invalid config file content.');
         }
 
         [
-            'accountId'  => $this->accountId,
+            'accountId' => $this->accountId,
             'accountPwd' => $this->accountPwd,
         ] = $config;
     }
