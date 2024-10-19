@@ -1,7 +1,7 @@
 {
   "name": "kmvan/smsbao",
   "description": "短信宝 for INN AO",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "project",
   "license": "GPL-v3.0",
   "authors": [

@@ -1,3 +1,9 @@
+# 1.0.3
+
+## Fix
+
+- Fixed SMS content error
+
 # 1.0.2
 
 ## Fix
