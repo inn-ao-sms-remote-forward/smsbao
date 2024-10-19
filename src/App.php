@@ -40,7 +40,7 @@ final class App
             'u' => $this->accountId,
             'p' => md5($this->accountPwd),
             'm' => $this->phoneNumber,
-            'c' => urlencode($this->sms),
+            'c' => $this->sms,
         ]);
 
         return '0' === file_get_contents("https://api.smsbao.com/sms?{$query}");
